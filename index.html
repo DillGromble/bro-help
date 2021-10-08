@@ -2,6 +2,30 @@
 
 <html lang="en">
   <body>
-    <button>Click Me!</button>
+    <input id="game-input" type="text" />
+    <button id="game-btn">Click Me!</button>
+
+    <div id="msg-log"></div>
   </body>
+
+  <script lang="js">
+    let gameInput = document.getElementById('game-input');
+    let gameBtn = document.getElementById('game-btn');
+    let log = document.getElementById('msg-log');
+
+    gameBtn.onclick = function () {
+      let inputVal = gameInput.value;
+      if (inputVal !== 'doot') {
+        addToLog("Did not understand command: " + inputVal);
+      } else {
+        addToLog(inputVal);
+      }
+    }
+
+    addToLog('Welcome Adventurer!  Type "doot" to continue');
+
+    function addToLog(val) {
+      log.innerText += val + '\n';
+    }
+  </script>
 </html>
